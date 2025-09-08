@@ -1,0 +1,57 @@
+public class NotaFiscal {
+	String cpf, codigoDaNota, date, time;
+    Produto p;
+    Cliente c;
+
+	public NotaFiscal(String c, String cdn, String d, String time, Produto pro, Cliente cl){
+		this.cpf = c;
+		this.codigoDaNota = cdn;
+		this.date = d;
+		this.time = time;
+        this.p = pro;
+        this.c = cl;
+	}
+
+    void setCPF(String c){
+        this.cpf = c;
+    }
+
+    void setCodigoDaNota(String cn){
+        this.codigoDaNota = cn;
+    }
+
+    void setDate(String d){
+        this.date = d;
+    }
+
+    void setTime(String t){
+        this.time = t;
+    }
+
+    String getCodigoDaNota(){
+        return this.codigoDaNota;
+    }
+
+    String getDate(){
+        return this.date;
+    }
+
+    String getTime(){
+        return this.time;
+    }
+
+	void exibir() {
+		System.out.println("----Nota Fiscal----");
+        System.out.println("Código da nota: " + getCodigoDaNota());
+        System.out.println("Data da nota: " + getDate());
+        System.out.println("Horário da Compra: " + getTime());
+        p.ExibirProduto();
+	}
+
+    void listarProdutos(){
+        for(Produto pr: p.estoque){
+            System.out.println("Produtos listados: ");
+            System.out.printf(pr.getName() + ",");
+        }
+    }
+}
