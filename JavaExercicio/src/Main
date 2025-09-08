@@ -1,0 +1,13 @@
+public class Main {
+	public static void main(String[] args) {
+        Produto p1 = new Produto();
+        Cliente c1 = new Cliente();
+
+        p1.Cadastrar();
+        p1.ExibirProduto();
+
+        c1.ConsultarProduto();
+        c1.VerLista();
+
+	}
+}
