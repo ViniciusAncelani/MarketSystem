@@ -1,87 +1,47 @@
-import java.util.Scanner;
-
 public class Cliente {
-    String name, birthday, CPF;
-    Scanner sc = new Scanner(System.in);
+    private String nome;
+    private String cpf;
+    private String dataNascimento;
 
-    Cliente() {
-
+    public Cliente() {
     }
 
-    Cliente(String n, String c, String b) {
-        this.name = n;
-        this.CPF = c;
-        this.birthday = b;
+    public Cliente(String nome, String cpf, String dataNascimento) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
     }
 
-    void setName(String n) {
-        this.name = n;
+    public String getNome() {
+        return nome;
     }
 
-    void setBirthday(String b) {
-        this.birthday = b;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    void setCPF(String c) {
-        this.CPF = c;
+    public String getCpf() {
+        return cpf;
     }
 
-    String getName() {
-        return this.name;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    String getCPF() {
-        return this.CPF;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    String getBirthday() {
-        return this.birthday;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    void getUserAtrributes() {
-        System.out.println("Digite o seu nome: ");
-        name = sc.nextLine();
-        setName(name);
-
-        System.out.println("Digite a sua data de nascimento: ");
-        birthday = sc.nextLine();
-        setBirthday(birthday);
-
-        System.out.println("Digite o seu CPF: ");
-        CPF = sc.nextLine();
-        setCPF(CPF);
-    }
-
-    void ConsultarProduto() {
-
-        while (true) {
-
-            System.out.println("\nDigite o produto que deseja consultar: ");
-            String requestForProduct = sc.nextLine();
-
-            for (Produto pr : Produto.estoque) {
-                if (pr.getName().equalsIgnoreCase(requestForProduct)) {
-                    System.out.println("Nome do produto: ");
-                    System.out.printf(pr.getName() + ",");
-                } else {
-                    System.out.println("Desculpa, mas o produto não foi cadastrado.");
-                    System.out.println("Deseja verificar outro produto?");
-                    String requestForFindProducts = sc.nextLine();
-
-                    if (requestForFindProducts.equalsIgnoreCase("não")) {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    void VerLista() {
-
-        System.out.println("\nLista dos Produtos: ");
-
-        for(Produto pr: Produto.estoque){
-            System.out.printf(pr.getName() + ",");
-        }
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                '}';
     }
 }
